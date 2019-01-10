@@ -3,9 +3,9 @@ import pandas as pd
 import numpy as np
 
 def main(submission):
-    ground_truth = pd.read_csv('./data/log_answer.csv')
-    test_answer = pd.read_csv(submission)
-    test_answer["PredictedLogRevenue"].fillna(0, inplace=True)
+    ground_truth = pd.read_csv('./data/log_answer.csv', dtype={'fullVisitorId': 'str'})
+    test_answer = pd.read_csv(submission, dtype={'fullVisitorId': 'str'},)
+#    test_answer["PredictedLogRevenue"].fillna(0, inplace=True)
     
     print(ground_truth.shape)
     print(test_answer.shape)
